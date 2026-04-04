@@ -4,6 +4,8 @@
 import logging
 import random
 
+import pandas as pd
+
 
 logger = logging.getLogger("system_g")
 
@@ -36,6 +38,16 @@ class MockApiClient:
         """Return current simulated position."""
         logger.info(f"[MOCK] Current position for {token}: {self._position}")
         return self._position
+    
+    def get_historical_prices(self, token, lookback_bars):
+        """Generate simulated historical price data."""
+        prices = [self._last_price]
+        for _ in range(lookback_bars - 1):
+            prices.append(prices[-1] * random.uniform(0.99, 1.01))
+        
+        df = pd.DataFrame({"close": prices})
+        logger.info(f"[MOCK] Generated {lookback_bars} historical bars for {token}")
+        return df
 
 
 class LiveApiClient:
@@ -52,6 +64,9 @@ class LiveApiClient:
         raise NotImplementedError
     
     def get_open_position_qty(self, token):
+        raise NotImplementedError
+    
+    def get_historical_prices(self, token, lookback_bars):
         raise NotImplementedError
 
 
