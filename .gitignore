@@ -13,6 +13,8 @@ venv/
 
 # Config with credentials
 config.py
+secrets.md
+*.pem
 
 # IDE
 .vscode/
