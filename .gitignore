@@ -29,3 +29,12 @@ Thumbs.db
 
 # Temporary files
 ~$*
+
+# Research data and models (large files)
+research/data/*
+research/trained_models/*
+!research/data/README.md
+!research/trained_models/README.md
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/

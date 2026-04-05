@@ -1,0 +1,24 @@
+# Research dependencies for local development
+# Install with: pip install -r research/requirements_research.txt
+
+# Jupyter environment
+jupyterlab
+
+# Data analysis
+pandas
+numpy
+matplotlib
+seaborn
+
+# Machine learning
+scikit-learn
+
+# Backtesting
+backtrader
+
+# Technical analysis
+ta-lib
+
+# Additional utilities
+openpyxl
+tqdm
